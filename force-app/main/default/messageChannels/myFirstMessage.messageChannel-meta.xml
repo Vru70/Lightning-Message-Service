@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>myFirstMessage</masterLabel>
+    <isExposed>true</isExposed>
+    <description>This Lightning Message Channel sends information from VF to LWC</description>
+    <lightningMessageFields>
+        <fieldName>recordId</fieldName>
+        <description>This is record id of Message Channel</description>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>recordData</fieldName>
+        <description>This is record data of Message Channel</description>
+    </lightningMessageFields>
+</LightningMessageChannel>

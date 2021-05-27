@@ -1,0 +1,42 @@
+<!--
+  @author            : Vrushabh Uprikar
+  @last modified on  : 05-27-2021
+  @last modified by  : Vrushabh Uprikar
+  Modifications Log 
+  Ver   Date         Author             Modification
+  1.0   05-27-2021   Vrushabh Uprikar   Initial Version
+-->
+<apex:page>
+<div>
+    <p>Subscriber Sample Message Channel</p>
+    <button onclick="subscribeMC()">SUBSCRIBE</button>
+    <p>Unsubscribe from subscription</p>
+    <button onclick="unsubscribeMC()">UNSUBSCRIBE</button>
+    <br />
+    <br /> 
+    <p>Recived Message :</p>
+    <textarea id="msgTextArea" rows="10" style="disabled:true; resize:none"></textarea>
+</div>
+
+<script>
+    // Load the MessageChannel token in a variable
+    var SAMPLEMC = "{!$MessageChannel.myFirstMessage__c}";
+    var subscriptionToMC;
+    function onMCPublished(message) {
+        var textArea = document.querySelector("#MCMessageTextArea");
+        textArea.innerHTML = message ? JSON.stringify(message, null, '\t') : 'no message payload';
+    }
+    function subscribeMC() {
+        if (!subscriptionToMC) {
+            subscriptionToMC = sforce.one.subscribe(SAMPLEMC, onMCPublished, { scope: "APPLICATION" });
+        }
+    }
+    function unsubscribeMC() {
+        if (subscriptionToMC) {
+            sforce.one.unsubscribe(subscriptionToMC);
+            subscriptionToMC = null;
+        }
+    }
+
+</script>
+</apex:page>

@@ -1,0 +1,27 @@
+<!--
+  @author            : Vrushabh Uprikar
+  @last modified on  : 05-26-2021
+  @last modified by  : Vrushabh Uprikar
+  Modifications Log 
+  Ver   Date         Author             Modification
+  1.0   05-26-2021   Vrushabh Uprikar   Initial Version
+-->
+<apex:page>
+<script>
+    // Load the message channel token in a variable 
+    var SAMPLEMC = "{!$MessageChannel.myFirstMessage__c}";
+    function handleClick()
+    {
+        const message = { // this is my payload
+            recordId: "Some string",
+            recordData:{value: "Some Value"}
+        }
+        sforce.one.publish(SAMPLEMC, message); // passing 1) Token , 2) Message or Payload
+    }
+</script>
+<div>
+    <p>Publish Sample message channel</p>
+    <button onclick="handleClick()">PUBLISH</button>
+</div>
+
+</apex:page>

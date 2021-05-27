@@ -22,14 +22,16 @@ export default class PublishLwc extends LightningElement
         getAccounts() // Loading Account details
             .then(result => {
                 this.accListData = result;
+                console.log('INSIDE Account lIst : ' + JSON.stringify(this.accListData));
             })
             .catch(error => {
                 this.error = error;
+                console.log('Error ', error);
             });
-    
+        console.log('Account lIst : ' + JSON.stringify(this.accListData));
     }
 
-    handleClickhandleClick(event)
+    handleClick(event)
     {
         event.preventDefault(); // Prevent the default behavior of tags
         const payload = {
@@ -37,9 +39,8 @@ export default class PublishLwc extends LightningElement
             recordData: {
                 value: "Message From LWC"
             }
-        };
-
-        
+        };        
         publish(this.messageContext, MessageChannel, payload);
+        console.log(':::::::Event PUBLISHED:::::::' );
     }
 }

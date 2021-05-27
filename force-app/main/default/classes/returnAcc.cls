@@ -17,7 +17,7 @@ public inherited sharing class returnAcc
     public static List<Account> getAccounts()
     {
             List<Account> listAcc = new List<Account>() ;
-            listAcc = [Select Name , Email__c from Account limit 5];
+            listAcc = [Select Id, Name , Email__c from Account limit 5];
             return listAcc;        
     }
 

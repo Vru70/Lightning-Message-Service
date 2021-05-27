@@ -10,7 +10,7 @@ import { LightningElement, track } from 'lwc';
 import { APPLICATION_SCOPE,createMessageContext, MessageContext, publish, releaseMessageContext, subscribe, unsubscribe} from 'lightning/messageService';
 import MessageChannel from '@salesforce/messageChannel/myFirstMessage__c';
 import NAME_FIELD from '@salesforce/schema/Account.Name';
-import REVENUE_FIELD from '@salesforce/schema/Account.AnnualFRevenue';
+import REVENUE_FIELD from '@salesforce/schema/Account.AnnualRevenue';
 import INDUSTRY_FIELD from '@salesforce/schema/Account.Industry';
 export default class SubscriberLwc extends LightningElement
 {

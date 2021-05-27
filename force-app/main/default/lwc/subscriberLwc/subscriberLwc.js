@@ -10,8 +10,8 @@ import { LightningElement, track } from 'lwc';
 import { APPLICATION_SCOPE,createMessageContext, MessageContext, publish, releaseMessageContext, subscribe, unsubscribe} from 'lightning/messageService';
 import MessageChannel from '@salesforce/messageChannel/myFirstMessage__c';
 import NAME_FIELD from '@salesforce/schema/Account.Name';
-import REVENUE_FIELD from '@salesforce/schema/Account.AnnualRevenue';
-import INDUSTRY_FIELD from '@salesforce/schema/Account.Industry';
+import REVENUE_FIELD from '@salesforce/schema/Account.Email__c';
+//import INDUSTRY_FIELD from '@salesforce/schema/Account.Industry';
 export default class SubscriberLwc extends LightningElement
 {
     messageContext = createMessageContext();
@@ -21,7 +21,7 @@ export default class SubscriberLwc extends LightningElement
     @track accountId;
     @track objectName = 'Account';
 
-    fileds = [NAME_FIELD, REVENUE_FIELD, INDUSTRY_FIELD];
+    fileds = [NAME_FIELD, REVENUE_FIELD];
 
     connectedCallback()
     {
